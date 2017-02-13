@@ -24,4 +24,3 @@ fixmydjango
 flake8
 ipython
 model-mommy
-pre-commit
