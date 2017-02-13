@@ -1,7 +1,7 @@
-from decouple import Csv, config
-from dj_database_url import parse as db_url
-
 from .base import *  # noqa
+
+from decouple import config, Csv
+from dj_database_url import parse as db_url
 
 
 DEBUG = False
@@ -46,7 +46,7 @@ CSRF_COOKIE_HTTPONLY = True
 WEBPACK_LOADER['DEFAULT']['CACHE'] = True
 
 # Celery
-BROKER_URL = config('REDIS_URL')
+CELERY_BROKER_URL = config('REDIS_URL')
 CELERY_RESULT_BACKEND = config('REDIS_URL')
 CELERY_SEND_TASK_ERROR_EMAILS = True
 
