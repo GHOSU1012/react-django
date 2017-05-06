@@ -1,3 +1,5 @@
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
+
 # Django React Boilerplate
 
 ## About this boilerplate
@@ -16,7 +18,7 @@ Also, includes a Heroku `app.json` and a working Django `production.py` settings
 - PostgreSQL, for DB
 - Redis, for Celery
 - Sendgrid, for e-mail sending
-- Papertrail, for logs and platform errors alerts (must set them manually on papertrail).
+- Papertrail, for logs
 - Opbeat, for performance monitoring
 
 This should be enough as a starting point for any modern web project.
@@ -96,3 +98,5 @@ Add high level dependecies to `requirements-to-freeze.txt` and `pip freeze > req
 
 ## Commercial Support
 This project, as other Vinta open-source projects, is used in products of Vinta clients. We are always looking for exciting work, so if you need any commercial support, feel free to get in touch: contact@vinta.com.br
+
+Copyright (c) 2017 Vinta Serviços e Soluções Tecnológicas Ltda
