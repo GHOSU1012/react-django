@@ -1,4 +1,4 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.TXT)
+[![License: MIT](https://img.shields.io/github/license/vintasoftware/django-react-boilerplate.svg)](LICENSE.txt)
 
 # Django React Boilerplate
 
@@ -18,7 +18,7 @@ Also, includes a Heroku `app.json` and a working Django `production.py` settings
 - PostgreSQL, for DB
 - Redis, for Celery
 - Sendgrid, for e-mail sending
-- Papertrail, for logs
+- Papertrail, for logs and platform errors alerts (must set them manually on papertrail).
 - Opbeat, for performance monitoring
 
 This should be enough as a starting point for any modern web project.
