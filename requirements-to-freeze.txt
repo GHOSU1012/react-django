@@ -20,7 +20,8 @@ whitenoise
 # test
 bandit
 coverage
-prospector[with_vulture]
+flake8<3
+flake8-putty
 isort
 safety
 
