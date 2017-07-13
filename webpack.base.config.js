@@ -1,3 +1,4 @@
+var autoprefixer = require('autoprefixer');
 var path = require('path');
 var nodeModulesDir = path.resolve(__dirname, 'node_modules');
 var BundleTracker = require('webpack-bundle-tracker');
@@ -74,7 +75,11 @@ module.exports = [{
     // defined in local or prod
   ],
   resolve: {
-    modules: ['node_modules', 'bower_components'],
+    modules: [
+      'node_modules',
+      'bower_components',
+      path.resolve(__dirname, 'assets/js/'),
+    ],
     extensions: ['.js', '.jsx'],
   },
 }];

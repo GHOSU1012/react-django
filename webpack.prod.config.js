@@ -1,4 +1,3 @@
-var autoprefixer = require('autoprefixer');
 var baseConfig = require('./webpack.base.config');
 var webpack = require('webpack')
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -9,8 +8,6 @@ var nodeModulesDir = path.resolve(__dirname, 'node_modules');
 
 baseConfig[1].entry = [
   'bootstrap-loader/extractStyles',
-  'whatwg-fetch',
-  'babel-polyfill',
   './assets/js/index.js',
 ]
 
@@ -47,14 +44,6 @@ baseConfig[1].plugins = [
   new webpack.optimize.UglifyJsPlugin({ comments: false }),
   new BundleTracker({
     filename: './webpack-stats.json'
-  }),
-  new webpack.LoaderOptionsPlugin({
-    options: {
-      context: __dirname,
-      postcss: [
-        autoprefixer,
-      ]
-    }
   }),
   new webpack.ProvidePlugin({
     $: "jquery",

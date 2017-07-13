@@ -1,4 +1,3 @@
-var autoprefixer = require('autoprefixer');
 var webpack = require('webpack');
 var baseConfig = require('./webpack.base.config');
 var SpritesmithPlugin = require('webpack-spritesmith');
@@ -10,8 +9,6 @@ baseConfig[1].entry = [
   'webpack-dev-server/client?http://localhost:3000',
   'webpack/hot/only-dev-server',
   'bootstrap-loader',
-  'whatwg-fetch',
-  'babel-polyfill',
   './assets/js/index',
 ]
 
@@ -44,14 +41,6 @@ baseConfig[1].plugins = [
   }),
   new BundleTracker({
     filename: './webpack-stats.json'
-  }),
-  new webpack.LoaderOptionsPlugin({
-    options: {
-      context: __dirname,
-      postcss: [
-        autoprefixer,
-      ]
-    }
   }),
   new webpack.ProvidePlugin({
     $: "jquery",
