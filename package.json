@@ -5,38 +5,10 @@
   "description": "{{project_name}} frontend assets.",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test:watch": "npm test -- --watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "babel-node server.js",
     "build": "NODE_ENV=production webpack -p --progress --colors --config webpack.prod.config.js --bail",
-    "lint": "eslint assets",
-    "coverage": "jest --coverage"
-  },
-  "jest": {
-    "transform": {
-      ".*": "<rootDir>/node_modules/jest-css-modules"
-    },
-    "collectCoverageFrom": [
-      "assets/js/**/*.{js,jsx}"
-    ],
-    "coveragePathIgnorePatterns": [
-      "assets/js/store.js",
-      "assets/js/index.js",
-      "assets/js/jquery-index.js",
-      "assets/js/constants/*",
-      "assets/js/pages/*",
-      "assets/js/tests/*"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "statements": 10
-      }
-    },
-    "modulePaths": [
-      "assets",
-      "assets/js",
-      "assets/js/app"
-    ]
+    "lint": "eslint assets"
   },
   "dependencies": {
     "autoprefixer": "^7.1.1",
@@ -46,8 +18,8 @@
     "babel-polyfill": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "bootstrap": "4.0.0-alpha.6",
-    "bootstrap-loader": "2.1.0",
+    "bootstrap": "^4.0.0-beta.2",
+    "bootstrap-loader": "^2.2.0",
     "classnames": "^2.2.5",
     "css-loader": "^0.28.4",
     "expose-loader": "^0.7.3",
@@ -58,6 +30,7 @@
     "lodash": "^4.17.4",
     "marked": "^0.3.6",
     "node-sass": "^4.5.3",
+    "popper.js": "^1.12.9",
     "postcss": "^6.0.3",
     "postcss-loader": "^2.0.6",
     "prop-types": "^15.5.10",
@@ -82,9 +55,6 @@
     "eslint-plugin-import": "^2.6.0",
     "eslint-plugin-jsx-a11y": "^5.1.0",
     "eslint-plugin-react": "^7.1.0",
-    "react-hot-loader": "^1.3.1",
-    "jest": "^21.2.1",
-    "jest-css-modules": "^1.1.0",
-    "react-test-renderer": "^15.4.1"
+    "react-hot-loader": "^1.3.1"
   }
 }
