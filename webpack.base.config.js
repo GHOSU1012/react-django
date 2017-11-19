@@ -59,12 +59,8 @@ module.exports = [{
         ],
       },
       {
-        test: /\.(svg)(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(woff(2)?|eot|ttf|svg)(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader?limit=100000',
-      },
-      {
-        test: /\.(woff(2)?|eot|ttf)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file-loader?name=fonts/[name].[ext]',
       },
       {
         test: /\.(jpg|png)?$/,
