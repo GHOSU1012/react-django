@@ -10,7 +10,7 @@ A [Django 1.11](https://www.djangoproject.com/) project boilerplate/template wit
 - [Webpack](https://webpack.js.org/), for bundling static assets
 - [Celery](http://www.celeryproject.org/), for background worker tasks
 - [WhiteNoise](http://whitenoise.evans.io/en/stable/) with [brotlipy](https://github.com/python-hyper/brotlipy), for efficient static files serving
-- [prospector](https://prospector.landscape.io/en/master/) and [ESLint](https://eslint.org/) with [pre-commit](http://pre-commit.com/) for automated quality assurance (does not replace proper testing!)
+- [prospector](http://whitenoise.evans.io/en/stable/) and [ESLint](https://eslint.org/) with [pre-commit](http://pre-commit.com/) for automated quality assurance (does not replace proper testing!)
 
 For continuous integration, a [CircleCI](https://circleci.com/) configuration `circle.yml` is included.
 
@@ -39,7 +39,7 @@ django-admin startproject theprojectname --extension py,yml,json --name Procfile
 - [ ] Add an email address to the `ADMINS` settings variable
 - [ ] Change the `SERVER_EMAIL` to the email address used to send e-mails.
 
-After completing ALL of the above, remove this `Project bootstrap` section from the project README. Then follow `Running` below.
+After completing ALL of the above, remove this `Project bootstrap` section from the project README. Then follow `Quickstart` below.
 
 ## Running
 ### Setup
