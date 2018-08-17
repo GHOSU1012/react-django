@@ -12,6 +12,7 @@ coverage = "*"
 django-debug-toolbar = "*"
 django-debug-toolbar-request-history = "*"
 django-naomi = "*"
+fixmydjango = "*"
 isort = "*"
 model-mommy = "*"
 pre-commit = "*"
@@ -24,7 +25,7 @@ safety = "*"
 
 [packages]
 
-django = "*"
+django = ">=1.11,<2"
 celery = {extras = ["redis"]}
 django-model-utils = "*"
 django-webpack-loader = "*"
