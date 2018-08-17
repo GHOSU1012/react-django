@@ -12,7 +12,7 @@ A [Django](https://www.djangoproject.com/) project boilerplate/template with lot
 - [WhiteNoise](http://whitenoise.evans.io/en/stable/) with [brotlipy](https://github.com/python-hyper/brotlipy), for efficient static files serving
 - [prospector](https://prospector.landscape.io/en/master/) and [ESLint](https://eslint.org/) with [pre-commit](http://pre-commit.com/) for automated quality assurance (does not replace proper testing!)
 
-For continuous integration, a [CircleCI](https://circleci.com/) configuration `circle.yml` is included.
+For continuous integration, a [CircleCI](https://circleci.com/) configuration `.circleci/config.yml` is included.
 
 Also, includes a Heroku `app.json` and a working Django `production.py` settings, enabling easy deployments with ['Deploy to Heroku' button](https://devcenter.heroku.com/articles/heroku-button). Those Heroku plugins are included in `app.json`:
 - PostgreSQL, for DB
@@ -39,7 +39,7 @@ django-admin startproject theprojectname --extension py,yml,json --name Procfile
 - [ ] Check for outdated npm dependencies with `npm outdated` and update them.
 - [ ] Change the first line of README to the name of the project.
 - [ ] Add an email address to the `ADMINS` settings variable in `{{project_name}}/{{project_name}}/settings/base.py`
-- [ ] Change the `SERVER_EMAIL` to the email address used to send e-mails in `{{project_name}}/{{project_name}}/settings/production.py`
+- [ ] Change the `SERVER_EMAIL` to the email address used to send e-mails.
 
 After completing ALL of the above, remove this `Project bootstrap` section from the project README. Then follow `Running` below.
 
