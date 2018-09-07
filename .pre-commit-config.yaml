@@ -1,7 +1,5 @@
-fail_fast: true
-repos:
 - repo: git://github.com/pre-commit/pre-commit-hooks
-  rev: v0.9.2
+  sha: v0.9.2
   hooks:
     - id: check-added-large-files
       args: ['--maxkb=500']
