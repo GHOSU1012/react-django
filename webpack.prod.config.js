@@ -1,16 +1,14 @@
 var autoprefixer = require('autoprefixer');
 var baseConfig = require('./webpack.base.config');
 var webpack = require('webpack')
-var MiniCssExtractPlugin = require('mini-css-extract-plugin');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var SpritesmithPlugin = require('webpack-spritesmith');
 var BundleTracker = require('webpack-bundle-tracker');
 var path = require('path');
 var nodeModulesDir = path.resolve(__dirname, 'node_modules');
 
-baseConfig[0].mode = 'production'
-baseConfig[1].mode = 'production'
-
 baseConfig[1].entry = [
+  'bootstrap-loader/extractStyles',
   'whatwg-fetch',
   'babel-polyfill',
   './assets/js/index.js',
@@ -22,7 +20,7 @@ baseConfig[1].output = {
   filename: '[name]-[hash].js',
 }
 
-baseConfig[1].module.rules.push({
+baseConfig[1].module.loaders.push({
   test: /\.jsx?$/,
   exclude: [nodeModulesDir],
   loaders: ['babel-loader?presets[]=react,presets[]=es2015']
@@ -31,8 +29,6 @@ baseConfig[1].module.rules.push({
   test: /\.(woff(2)?|eot|ttf)(\?v=\d+\.\d+\.\d+)?$/,
   loader: 'file-loader?name=fonts/[name].[ext]',
 });
-
-baseConfig[1].optimization = { minimize: true };
 
 baseConfig[1].plugins = [
   new webpack.DefinePlugin({  // removes React warnings
@@ -51,7 +47,8 @@ baseConfig[1].plugins = [
       },
       retina: '@2x'
   }),
-  new MiniCssExtractPlugin({ filename: '[name]-[hash].css', disable: false, allChunks: true }),
+  new ExtractTextPlugin({ filename: '[name]-[hash].css', disable: false, allChunks: true }),
+  new webpack.optimize.UglifyJsPlugin({ comments: false }),
   new BundleTracker({
     filename: './webpack-stats.json'
   }),
