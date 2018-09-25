@@ -1,31 +1,37 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
 
 import ColorDisplay from '../ColorDisplay';
 
 
 describe('ColorDisplay', () => {
+  let Component;
+  let tree;
+
   test('purple', () => {
-    const wrapper = shallow((
+    Component = renderer.create((
       <ColorDisplay color="purple" />
     ));
 
-    expect(wrapper).toMatchSnapshot();
+    tree = Component.toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
   test('no color (should default to black)', () => {
-    const wrapper = shallow((
+    Component = renderer.create((
       <ColorDisplay />
     ));
 
-    expect(wrapper).toMatchSnapshot();
+    tree = Component.toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
   test('unknown color', () => {
-    const wrapper = shallow((
+    Component = renderer.create((
       <ColorDisplay color="caterpillar" />
     ));
 
-    expect(wrapper).toMatchSnapshot();
+    tree = Component.toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });

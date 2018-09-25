@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
 
 import ColorChanger from '../ColorChanger';
 
@@ -7,19 +7,24 @@ jest.mock('../../ColorDisplay/ColorDisplay');
 
 
 describe('ColorChanger', () => {
+  let Component;
+  let tree;
+
   test('Some title', () => {
-    const wrapper = shallow((
+    Component = renderer.create((
       <ColorChanger title="This is a test title" />
     ));
 
-    expect(wrapper).toMatchSnapshot();
+    tree = Component.toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
   test('No title (should use default)', () => {
-    const wrapper = shallow((
+    Component = renderer.create((
       <ColorChanger />
     ));
 
-    expect(wrapper).toMatchSnapshot();
+    tree = Component.toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });
