@@ -51,7 +51,7 @@
     }
   },
   "dependencies": {
-    "autoprefixer": "^8.6.2",
+    "autoprefixer": "^9.3.0",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
@@ -79,7 +79,7 @@
     "resolve-url-loader": "^2.1.0",
     "sass-loader": "^7.0.3",
     "script-loader": "^0.7.0",
-    "style-loader": "^0.23.1",
+    "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
     "webpack": "^4.20.2",
     "webpack-bundle-tracker": "^0.3.0",
