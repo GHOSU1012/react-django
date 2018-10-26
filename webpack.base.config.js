@@ -11,7 +11,7 @@ module.exports = [{
     filename: 'bundle-jquery.js',
   },
   module: {
-    rules: [
+    loaders: [
       {
         test: /\.jsx?$/,
         exclude: [nodeModulesDir],
@@ -40,7 +40,7 @@ module.exports = [{
     // defined in local or prod
   },
   module: {
-    rules: [
+    loaders: [
       {
         test: /\.css$/,
         loaders: [
