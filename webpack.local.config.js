@@ -14,13 +14,13 @@ baseConfig[1].entry = [
   'webpack/hot/only-dev-server',
   'whatwg-fetch',
   '@babel/polyfill',
-  './frontend/js/index',
+  './assets/js/index',
 ]
 
-baseConfig[0].output['publicPath'] = 'http://localhost:3000/frontend/bundles/';
+baseConfig[0].output['publicPath'] = 'http://localhost:3000/assets/bundles/';
 baseConfig[1].output = {
-  path: path.resolve('./frontend/bundles/'),
-  publicPath: 'http://localhost:3000/frontend/bundles/',
+  path: path.resolve('./assets/bundles/'),
+  publicPath: 'http://localhost:3000/assets/bundles/',
   filename: '[name].js',
 }
 
@@ -40,12 +40,12 @@ baseConfig[1].plugins = [
   new webpack.NoEmitOnErrorsPlugin(),  // don't reload if there is an error
   new SpritesmithPlugin({
       src: {
-        cwd: path.resolve(__dirname, 'frontend/images/'),
+        cwd: path.resolve(__dirname, 'assets/images/'),
         glob: '*.png'
       },
       target: {
-        image: path.resolve(__dirname, 'frontend/images/spritesmith-generated/sprite.png'),
-        css: path.resolve(__dirname, 'frontend/sass/vendor/spritesmith.scss')
+        image: path.resolve(__dirname, 'assets/images/spritesmith-generated/sprite.png'),
+        css: path.resolve(__dirname, 'assets/sass/vendor/spritesmith.scss')
       },
       retina: '@2x'
   }),
