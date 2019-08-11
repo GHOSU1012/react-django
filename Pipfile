@@ -34,7 +34,6 @@ gunicorn = "*"
 whitenoise = "*"
 psutil = "*"
 ipython = "*"
-sentry-sdk = "*"
 
 
 [requires]
