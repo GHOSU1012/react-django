@@ -6,7 +6,6 @@
 /staticfiles/*
 /mediafiles/*
 __pycache__/
-/.vscode/
 
 # coverage result
 .coverage
@@ -26,8 +25,8 @@ npm-debug.log
 .DS_Store
 
 # Webpack
-/frontend/bundles/*
-/frontend/webpack_bundles/*
+/assets/bundles/*
+/assets/webpack_bundles/*
 /webpack-stats.json
 /jquery-webpack-stats.json
 
