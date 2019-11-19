@@ -98,6 +98,9 @@ Add the libname to either requirements.in or dev-requirents.in, then either upgr
 `pip-compile requirements.in > requirements.txt` or `make upgrade`
 `pip install -r requirements.txt`
 
+### Cleaning example code
+Before start creating you own apps, run the command `make clean_examples` in order to clean the example apps from the front and backend. It will also remove it's usage.
+
 ## Deployment 
 ### Setup
 This project comes with a `app.json` file for heroku, that can be used to create an app on heroku from a GitHub repository.
@@ -141,12 +144,6 @@ After enabling dyno metadata and setting the environment variables, your next He
 ## Pre-commit hooks
 - Run `pre-commit install` to enable the hook into your git repo. The hook will run automatically for each commit.
 - Run `git commit -m "Your message" -n` to skip the hook if you need.
-
-## Opinionated Settings
-Some settings defaults were decided based on Vinta's experiences. Here's the rationale behind them:
-
-### `CELERY_ACKS_LATE = True`
-We believe Celery tasks should be idempotent. So for us it's safe to set `CELERY_ACKS_LATE = True` to ensure tasks will be re-queued after a worker failure. Check Celery docs on ["Should I use retry or acks_late?"](https://docs.celeryproject.org/en/latest/faq.html#should-i-use-retry-or-acks-late) for more info.
 
 ## Commercial Support
 This project, as other Vinta open-source projects, is used in products of Vinta clients. We are always looking for exciting work, so if you need any commercial support, feel free to get in touch: contact@vinta.com.br
