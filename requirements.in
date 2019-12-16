@@ -1,4 +1,4 @@
-django<3
+django
 celery[redis]
 django-model-utils
 django-webpack-loader
