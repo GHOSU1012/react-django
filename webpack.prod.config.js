@@ -1,25 +1,24 @@
-const autoprefixer = require('autoprefixer');
-const webpack = require('webpack');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const BundleTracker = require('webpack-bundle-tracker');
-const path = require('path');
+var autoprefixer = require('autoprefixer');
+var baseConfig = require('./webpack.base.config');
+var webpack = require('webpack');
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
+var BundleTracker = require('webpack-bundle-tracker');
+var path = require('path');
+var nodeModulesDir = path.resolve(__dirname, 'node_modules');
 
-const baseConfig = require('./webpack.base.config');
+baseConfig[0].mode = 'production';
+baseConfig[1].mode = 'production';
+baseConfig[1].devtool = 'source-map';
 
-const nodeModulesDir = path.resolve(__dirname, 'node_modules');
+baseConfig[1].entry = ['whatwg-fetch', '@babel/polyfill', './frontend/js/index.js'];
 
-baseConfig.mode = 'production';
-baseConfig.devtool = 'source-map';
-
-baseConfig.entry = ['whatwg-fetch', '@babel/polyfill', './frontend/js/index.js'];
-
-baseConfig.output = {
+baseConfig[1].output = {
   path: path.resolve('./frontend/webpack_bundles/'),
   publicPath: '',
   filename: '[name]-[hash].js',
 };
 
-baseConfig.module.rules.push(
+baseConfig[1].module.rules.push(
   {
     test: /\.jsx?$/,
     exclude: [nodeModulesDir],
@@ -36,14 +35,9 @@ baseConfig.module.rules.push(
   }
 );
 
-baseConfig.optimization = {
-  minimize: true,
-  splitChunks: {
-    chunks: 'all',
-  },
-};
+baseConfig[1].optimization = { minimize: true };
 
-baseConfig.plugins = [
+baseConfig[1].plugins = [
   new webpack.DefinePlugin({
     // removes React warnings
     'process.env': {
