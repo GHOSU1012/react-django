@@ -73,9 +73,8 @@ After completing ALL of the above, remove this `Project bootstrap` section from 
 - `pip install -r requirements.txt && pip install -r dev-requirements.txt`
 - `npm install`
 - `npm run start`
-- Open another command line window.
+- Open another command line window and go to the `backend` directory.
 - `workon theprojectname` or `source theprojectname/bin/activate` depending on if you are using virtualenvwrapper or just virtualenv.
-- Go to the `backend` directory.
 - `python manage.py runserver`
 
 
@@ -103,8 +102,6 @@ Add the libname to either requirements.in or dev-requirents.in, then either upgr
 
 ### Cleaning example code
 Before start creating your own apps, run the command `make clean_examples` in order to clean up the example apps from the front and backend.
-Deregister the example app by removing `'exampleapp.apps.ExampleappConfig'` from ``{{project_name}}/settings/base.py`` and adjust 
-``{{project_name}}/urls.py`` to point to your newly created Django app.
 
 ## Deployment 
 ### Setup
