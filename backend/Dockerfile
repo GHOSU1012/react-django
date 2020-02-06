@@ -21,8 +21,7 @@ RUN pip install -r requirements.txt && \
 RUN apt-get purge libpq-dev -y && apt-get autoremove -y && \
     rm /var/lib/apt/lists/* rm -rf /var/cache/apt/*
 
-COPY webpack-stats.json/ /home/user
 ADD backend/ /home/user/app
 
 USER user
-CMD gunicorn {{project_name}}.wsgi --log-file - -b 0.0.0.0:8000 --reload
+CMD gunicorn docker.wsgi --log-file - -b 0.0.0.0:8000 --reload
