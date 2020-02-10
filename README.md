@@ -36,8 +36,7 @@ In the next steps, always remember to replace theprojectname with your project's
 - [ ] Make sure the virtualenv is activated `workon theprojectname` or `source theprojectname/bin/activate`
 - [ ] Install pip-tools if not installed yet: `pip install pip-tools` (maybe you'll have to run this command as an OS superuser).
 - [ ] Make sure you have Python 3.7 installed.
-- [ ] Compile the requirements before installation: `pip-compile requirements.in > requirements.txt && pip-compile dev-requirements.in > dev-requirements.txt`
-- [ ] `pip install -r requirements.txt && pip install -r dev-requirements.txt`
+- [ ] Compile the requirements before installation and install them:  `make compile_install_requirements`
 - [ ] Change the first line of README to the name of the project.
 - [ ] Add an email address to the `ADMINS` settings variable in `{{project_name}}/{{project_name}}/settings/base.py`
 - [ ] Change the `SERVER_EMAIL` to the email address used to send e-mails in `{{project_name}}/{{project_name}}/settings/production.py`
@@ -73,9 +72,8 @@ After completing ALL of the above, remove this `Project bootstrap` section from 
 - `pip install -r requirements.txt && pip install -r dev-requirements.txt`
 - `npm install`
 - `npm run start`
-- Open another command line window.
+- Open another command line window and go to the `backend` directory.
 - `workon theprojectname` or `source theprojectname/bin/activate` depending on if you are using virtualenvwrapper or just virtualenv.
-- Go to the `backend` directory.
 - `python manage.py runserver`
 
 
@@ -103,8 +101,6 @@ Add the libname to either requirements.in or dev-requirents.in, then either upgr
 
 ### Cleaning example code
 Before start creating your own apps, run the command `make clean_examples` in order to clean up the example apps from the front and backend.
-Deregister the example app by removing `'exampleapp.apps.ExampleappConfig'` from ``{{project_name}}/settings/base.py`` and adjust 
-``{{project_name}}/urls.py`` to point to your newly created Django app.
 
 ## Deployment 
 ### Setup
