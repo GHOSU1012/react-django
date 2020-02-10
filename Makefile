@@ -32,6 +32,8 @@ clean_examples:
 	rm -rf ./backend/exampleapp
 	# Removing frontend example app files
 	rm -rf ./frontend/js/app/example-app
+	# Removing example templates files
+	rm -rf ./backend/templates/exampleapp
 
 compile_install_requirements:
 	@echo 'Compiling requirements...'
