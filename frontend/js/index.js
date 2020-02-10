@@ -1,6 +1,7 @@
 // import pages
-import * as Sentry from '@sentry/browser';
 import React from 'react';
+import * as Sentry from '@sentry/browser';
+
 import ReactDOM from 'react-dom';
 
 import './bootstrap-includes';

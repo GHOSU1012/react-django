@@ -1,6 +1,6 @@
 import * as Sentry from '@sentry/browser';
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 const FallbackUI = ({ eventId }) => (
   <>
