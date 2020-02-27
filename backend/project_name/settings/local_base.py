@@ -24,12 +24,11 @@ AUTH_PASSWORD_VALIDATORS = []  # allow easy passwords only on local
 
 # Celery
 CELERY_TASK_ALWAYS_EAGER = True
-CELERY_TASK_EAGER_PROPAGATES = True
 
-# Email settings for mailhog
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = 'mailhog'
-EMAIL_PORT = 1025
+# Email
+INSTALLED_APPS += ("naomi",)
+EMAIL_BACKEND = "naomi.mail.backends.naomi.NaomiBackend"
+EMAIL_FILE_PATH = base_dir_join("tmp_email")
 
 # Logging
 LOGGING = {

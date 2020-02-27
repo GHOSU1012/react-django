@@ -5,16 +5,16 @@ clean:
 	@find . -name "__pycache__" -delete
 
 test:
-	python backend/manage.py test backend/ $(ARG) --parallel --keepdb
+	python backend/manage.py test $(ARG) --parallel --keepdb
 
 dockertest:
-	docker-compose run backend python manage.py test $(ARG) --parallel --keepdb
+	docker-compose run backend python backend/manage.py test $(ARG) --parallel --keepdb
 
 testreset:
-	python backend/manage.py test backend/ $(ARG) --parallel
+	python backend/manage.py test $(ARG) --parallel
 
 dockertestreset:
-	docker-compose run backend python manage.py test $(ARG) --parallel
+	docker-compose run backend python backend/manage.py test $(ARG) --parallel
 
 backend_format:
 	black backend
@@ -29,22 +29,15 @@ upgrade: ## update the *requirements.txt files with the latest packages satisfyi
 
 clean_examples:
 	# Remove the tables specific for the example app
-	python backend/manage.py migrate exampleapp zero
+	python manage.py migrate exampleapp zero
 	# Removing backend example app files
 	rm -rf ./backend/exampleapp
 	# Removing frontend example app files
 	rm -rf ./frontend/js/app/example-app
 	# Removing example templates files
 	rm -rf ./backend/templates/exampleapp
-	# Remove exampleapp from settings
-	sed -i '/exampleapp/d' ./backend/{{project_name}}/settings/base.py
-	# Remove exampleapp from urls
-	sed -i '/exampleapp/d' ./backend/{{project_name}}/urls.py
 
 compile_install_requirements:
-	@echo 'Installing pip-tools...'
-	export PIP_REQUIRE_VIRTUALENV=true; \
-	pip install pip-tools
 	@echo 'Compiling requirements...'
 	pip-compile requirements.in > requirements.txt
 	pip-compile dev-requirements.in > dev-requirements.txt
