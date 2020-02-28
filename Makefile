@@ -28,14 +28,10 @@ upgrade: ## update the *requirements.txt files with the latest packages satisfyi
 	mv requirements.tmp requirements.txt
 
 clean_examples:
-	# Remove the tables specific for the example app
-	python manage.py migrate exampleapp zero
-	# Removing backend example app files
+	# Removing backend example app fles
 	rm -rf ./backend/exampleapp
 	# Removing frontend example app files
 	rm -rf ./frontend/js/app/example-app
-	# Removing example templates files
-	rm -rf ./backend/templates/exampleapp
 
 compile_install_requirements:
 	@echo 'Compiling requirements...'
