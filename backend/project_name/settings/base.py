@@ -56,6 +56,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [base_dir_join("templates")],
+        "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
@@ -64,15 +65,6 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "common.context_processors.sentry_dsn",
                 "common.context_processors.commit_sha",
-            ],
-            "loaders": [
-                (
-                    "django.template.loaders.cached.Loader",
-                    [
-                        "django.template.loaders.filesystem.Loader",
-                        "django.template.loaders.app_directories.Loader",
-                    ],
-                ),
             ],
         },
     },
@@ -119,8 +111,3 @@ CELERY_TIMEZONE = TIME_ZONE
 # Sentry
 SENTRY_DSN = config("SENTRY_DSN", default="")
 COMMIT_SHA = config("HEROKU_SLUG_COMMIT", default="")
-
-# Fix for Safari 12 compatibility issues, please check:
-# https://github.com/vintasoftware/safari-samesite-cookie-issue
-CSRF_COOKIE_SAMESITE = None
-SESSION_COOKIE_SAMESITE = None
